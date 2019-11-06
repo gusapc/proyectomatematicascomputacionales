@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>proyecto final Matematicas computacionales</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" />
+    <link rel="stylesheet" href="styles/fsm_simulator.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1>Proyecto final Matematicas computacionales</h1>
+
+        <p>Representacion de automatas finitos deterministas</p>
+        <p>Por:</p>
+        <p>huehuheuhuheu</p>
+        <p>huehuheuhuheu</p>
+        <p>huehuheuhuheu</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container controls">
+        <div class="row-fluid">
+          <div class="span6 column">
+            <h3> &#x2460; Crear tabla </h3>
+
+            <ul class="nav nav-tabs">
+              <li id="regexinput" class="active"><a href="#tab1" data-toggle="tab">Intrucciones para crear la tabla</a></li>
+              <li id="fsminput"><a href="#tab2" data-toggle="tab">Crear tabla para el automata</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <div class="instructions">
+                  <p>se inicia como en el siguiente ejemplo se definen los estados ("states"), el estado inicial ("initial"), esl estaod de aceptaicon ("accepting"), el alfabeto ("alphabet") y las transiciones ("transitions") con un # al inicio como se muestra en el sigueinte ejemplo:</p>
+                  <p>#states</p>
+                  <p>s0</p>
+                  <p>s1</p>
+                  <p>s2</p>
+                  <p>s3</p>
+                  <p>#initial</p>
+                  <p>s0</p>
+                  <p>#accepting</p>
+                  <p>s1</p>
+                  <p>#alphabet</p>
+                  <p>a</p>
+                  <p>b</p>
+                  <p>c</p>
+                  <p>#transitions</p>
+                  <p>s0:a>s2</p>
+                  <p>s0:b>s3</p>
+                  <p>s0:c>s2</p>
+                  <p>s1:a>s0</p>
+                  <p>s1:b>s3</p>
+                  <p>s1:c>s3</p>
+                  <p>s2:a>s3</p>
+                  <p>s2:b>s2</p>
+                  <p>s2:c>s2</p>
+                  <p>s3:a>s0</p>
+                  <p>s3:b>s0</p>
+                  <p>s3:c>s1</p>
+                </div>
+
+              </div>
+              <div class="tab-pane" id="tab2">
+                <div class="instructions">
+                  <p>Aqui se introduce la tabla de estados</p>
+                </div>
+                <p>
+                  <textarea id="fsm" class="input-block-level" type="text" placeholder="escribir aqui" spellcheck="false"></textarea>
+                </p>
+                <p>
+                  <button id="createAutomaton" class="btn" disabled>Crear automata</button>
+                </p>
+              </div>
+            </div>           
+
+          </div>
+
+          <div class="span6 column">
+            <h3> &#x2461; Cadena a validar </h3>
+
+            <div class="instructions">
+              <p>
+                Aqui se introduce una cadena que el automata determinara si es valida o no
+              </p>
+            </div>
+
+            <p>
+              <div class="control-group">
+                <input id="inputString" type="text" class="input-block-level" placeholder="Aqui va la cadena a evaluar" disabled spellcheck="false">
+              </div>
+            </p>
+
+            <p>
+              <button id="startStop" class="btn" disabled>
+                inicio
+              </button>
+              <button id="inputFirst" class="btn" disabled>
+                <i class="icon-fast-backward"></i>
+                reiniciar
+              </button>
+              <button id="inputPrevious" class="btn" disabled>
+                <i class="icon-backward"></i>
+                anterior
+              </button>
+              <button id="inputNext" class="btn" disabled>
+                <i class="icon-forward"></i>
+                siguente 
+              </button>
+              <button id="inputLast" class="btn" disabled>
+                <i class="icon-fast-forward"></i>
+                Terminar recorrido
+              </button>
+            </p>
+
+            
+
+          </div>
+        </div>
+
+        <hr />
+      </div>
+
+      <div class="container graph">
+        <h3> &#x2462; Automata </h3>
+        <div id="automatonGraph"> </div>
+      </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+    <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
+    <script src="../../lib/browser/noam.js"></script>
+    <script src="scripts/fsm_simulator.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36346935-1']);
+      _gaq.push(['_setDomainName', 'auto']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '5162c171613f5d6f68000001');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
